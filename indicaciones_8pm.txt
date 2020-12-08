@@ -1,0 +1,34 @@
+Explicación Examen #2 8pm!
+============================
+5 archivos comprimidos:
+=======================
+#1 ex2_base_8pm.sql (guardar como)
+#2 HR2_Modelo_Relacional.pdf
+#3 hr2Prac2.sql
+#4 indicaciones_8pm.txt
+#5 Salida_8pm.txt
+==============================================================================
+
+Leer todo el archivo ex2_base_8pm.sql (allí está la explicación de cada ejercicio a resolver)
+y los puntos de castigo
+
+1 punto por cada minuto tarde que se envíe le examen al aula virtual!!! Sin excepcion. (Con Adecuación 1 horas más)
+
+#1 Correr --@hr2Prac2.sql
+#2 Nombre archivo (guardar como ex2_nombre_apellido.sql)
+  --atención donde dice **OJO**
+#3 Formateo de columnas (en base ya está listo!)
+#4 Revisar que no tenga errores!! 
+   Ojo: Puntaje 6x15 puntos las dos ultimas 5 puntos cada una!
+#5 Subir solo archivo .sql SIN COMPRIMIR en aula virtual (Examen #2)
+#6 Trabajar individual, apelo a la honestidad de cada estudiante!
+#7 Estaré 1.5 horas para consultas (Microsoft TEAMS), los que tiene adecuación pueden seguir (1 hora mas)
+   pero no hay mas tiempo para consultas solo 1.5 horas
+   
+==============================================================================
+
+Video youtube explicacion
+https://www.youtube.com/watch?v=vh96hE5p23I
+
+Descargar Video 100MB (para que no consuma datos)
+https://agd.una.ac.cr/share/s/yWZ3GgkVSrmUQfRZH9YRRQ

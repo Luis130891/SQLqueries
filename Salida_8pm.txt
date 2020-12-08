@@ -1,0 +1,203 @@
+
+=========================================================================================================
+Estudiante: "luis venegas ulloa", 6PM (Archivo a Subir: ex2_nombre_apellido.sql)
+2 puntos MENOS. si no va con este formato, todo en minuscula sin tildes ni caracteres especiales
+su nombre tanto al inicio como al final del script donde dice "Su nombre completo"
+=========================================================================================================
+.
+.
+.
+=========================================================================================================
+(1 punto menos por cada respuesta sin formateo de columnas Titulo EXACTO como se muestra en el ejemplo)
+Solo hay dos salidas (#2 y #4) que NO DEBE HACER FORMATEO DE COLUMNA para que el resultado salga bien! OJO!
+=========================================================================================================
+Haber ejecutado el script @hr2Prac2.sql (un par de veces)
+luego solo correr este script que hace selects, crea vistas y funciones. El Script no debe cambiar datos!
+Todo lo que hace este script es conectado como hr2
+=========================================================================================================
+=========================================================================================================
+#0 Conectarse como hr/hr2 y Formateo de Columnas
+Connected.
+=========================================================================================================
+1) (15ptos) SELECT. Consultar el ID de region con alias "Tipo" y el nombre de la region
+UNIR con id de empleado y apellido (solo cuando apellido inicia con letra "W")
+ordenar por columna #1 ascendente
+
+   Tipo Nombre
+------- ------------------------------
+      1 Europe
+      2 Americas
+      3 Asia
+      4 Middle East and Africa
+    120 Weiss
+    196 Walsh
+    200 Whalen
+
+7 rows selected.
+
+=========================================================================================================
+2) (15ptos) SELECT. Traer el PUESTO + " - " + NOMBRE DEPTO (del empleado), agrupar sobre la columna anterior
+y mostrar la cantidad de empleados, y sumar el salario, ordenar ascendente por la primer columna.
+
+
+Puesto_Depto                                       Cant Salarios
+-------------------------------------------------- ---- --------
+Accountant - Finance                                  5    39600
+Accounting Manager - Accounting                       1    12000
+Administration Assistant - Administration             1     4400
+Administration Vice President - Executive             2    34000
+Finance Manager - Finance                             1    12000
+Human Resources Representative - Human Resources      1     6500
+Marketing Manager - Marketing                         1    13000
+Marketing Representative - Marketing                  1     6000
+President - Executive                                 1    24000
+Programmer - IT                                       5    28800
+Public Accountant - Accounting                        1     8300
+Public Relations Representative - Public Relations    1    10000
+Purchasing Clerk - Purchasing                         5    13900
+Purchasing Manager - Purchasing                       1    11000
+Sales Manager - Sales                                 5    61000
+Sales Representative - Sales                         29   243500
+Shipping Clerk - Shipping                            20    64300
+Stock Clerk - Shipping                               20    55700
+Stock Manager - Shipping                              5    36400
+
+19 rows selected.
+
+=========================================================================================================
+3) (15ptos) FUNCTION. Funcion que cuente la cantidad de empleados que tiene a cargo el JEFE
+(El jefe de cada empleado es el campo MANAGER_ID)
+Recibe por parametro el ID de Jefe a buscar (cuando empleados tiene a cargo ese ID)
+
+Function created.
+
+No errors.
+3.1) VIEW. Crear una vista que muestre el id del empleado, el nombre del empleado y
+usar la funcion anterior para pasar por parametro el JEFE de cada empleado consultado (cada fila), para ver
+la cantidad de empleados que tiene a cargo ese JEFE.
+
+View created.
+
+3.2) Y hacer select de la vista anterior cuando el ID de empleado sea menor a 120 (ordenar por ID de emp ascendente
+
+   Id Nom_Emp                        Cant
+----- ------------------------------ ----
+  100 Steven                            0
+  101 Neena                            14
+  102 Lex                              14
+  103 Alexander                         1
+  104 Bruce                             4
+  105 David                             4
+  106 Valli                             4
+  107 Diana                             4
+  108 Nancy                             5
+  109 Daniel                            5
+  110 John                              5
+  111 Ismael                            5
+  112 Jose Manuel                       5
+  113 Luis                              5
+  114 Den                              14
+  115 Alexander                         5
+  116 Shelli                            5
+  117 Sigal                             5
+  118 Guy                               5
+  119 Karen                             5
+
+20 rows selected.
+
+=========================================================================================================
+4) (15ptos) SELECT. Hacer consulta que muestre ID de empleado, porcentaje de comision (COMMISSION_PCT),
+el salario, y la ultima columna es: la suma del porcentaje de comision MAS salario pero
+en caso que el porcentaje de comision sea nulo debe asumirlo como valor numerico 1 (uno) para poderlo sumar.
+Mostrar para los empleados de ID desde 143 a 147 (ambos inclusive) ordenado ascendente por id de empleado
+Ni "COMI" ni "SUM_COMI" tienen formateo de columnas
+segun su configuracion algunos valores puede verse como "14000,4" o bien "14000.4" (no hay problema)
+
+   Id       COMI Salarios   SUM_COMI
+----- ---------- -------- ----------
+  143                2600       2601
+  144                2500       2501
+  145         ,4    14000    14000,4
+  146         ,3    13500    13500,3
+  147         ,3    12000    12000,3
+
+=========================================================================================================
+5) (15ptos) SELECT. Producto cartesiano (1x1x1) para mostrar la combinacion exacta como se muestra esta consulta
+Debe usar las 3 tablas: JOB_HISTORY, DEPARTAMENTOS y LOCALIZACIONES.
+el primer campo es END_DATE de la tabla JOB_HISTORY, luego el nombre de departamento y la ciudad
+el estudiante hace la condicion de WHERE para mostrar este resultado usando las 3 tablas antes indicadas!
+
+Fec_Final  Nom_Depto            Ciudad
+---------- -------------------- --------------------
+24-07-1998 Public Relations     Toronto
+
+=========================================================================================================
+6) (15ptos) SELECT. Hacer una consulta sobre JOB_HISTORY mostrar el ID de empleado, la palabra fija
+"Inicio " y unir texto con START_DATE (con el formato indicado) y la palabra " Final "
+con la fecha del campo END_DATE  (con el formato indicado)
+ordenar por el primer campo, luego por el segundo (ambos ascendente)
+
+   Id Txt_Job
+----- ------------------------------------
+  101 Inicio 21-09-1989  Final 27-10-1993
+  101 Inicio 28-10-1993  Final 15-03-1997
+  102 Inicio 13-01-1993  Final 24-07-1998
+  114 Inicio 24-03-1998  Final 31-12-1999
+  122 Inicio 01-01-1999  Final 31-12-1999
+  176 Inicio 01-01-1999  Final 31-12-1999
+  176 Inicio 24-03-1998  Final 31-12-1998
+  200 Inicio 01-07-1994  Final 31-12-1998
+  200 Inicio 17-09-1987  Final 17-06-1993
+  201 Inicio 17-02-1996  Final 19-12-1999
+
+10 rows selected.
+
+=========================================================================================================
+7) (5ptos) FUNCTION. Crear funcion que reciba dos codigos de puesto, y retorne la cantidad de empleados
+que est├ín en JOB_HISTORY con esos codigos de puestos, y retornarlo.
+Puede que un codigo de puesto tenga 2 y el otro 0 (entonces retorna 2 que es la suma de ambos!)
+
+Function created.
+
+No errors.
+Estas pruebas son para comprobar, debe dejarlas con los mismos valores del ejemplo
+usando el nombre de la funcion que ha creado el estudiante
+7.1 Pruebas de la funcion con valores de ('ST_CLERK','AC_ACCOUNT')
+Ejemplo 7.1) : select fun_NOMBRE('ST_CLERK','AC_ACCOUNT') cant from dual
+
+Cant
+----
+   4
+
+7.2 Pruebas de la funcion con valores de ('IT_PROG','AD_ASST')
+Ejemplo 7.2) : select fun_NOMBRE('IT_PROG','AD_ASST') cant from dual
+
+Cant
+----
+   2
+
+=========================================================================================================
+8) (5ptos) FUNCTION. Crear funcion que reciba ID de departamento y muestre el texto como se
+muestra en el ejemplo abajo (ID + valor de id + nombre del departamento)
+
+Function created.
+
+No errors.
+Estas pruebas son para comprobar, debe dejarlas con los mismos valores del ejemplo
+usando el nombre de la funcion que ha creado el estudiante
+8.1 Prueba con ID #10:  Ej: select fun_NOMBRE(10) datos_depto from dual
+
+Datos_Depto
+------------------------------
+Id: 10 Administration
+
+8.2 Prueba con ID #20:  Ej: select fun_NOMBRE(20) datos_depto from dual
+
+Datos_Depto
+------------------------------
+Id: 20 Marketing
+
+=========================================================================================================
+Estudiante: "Su nombre completo", 6PM (Archivo a Subir: ex2_nombre_apellido.sql)
+=========================================================================================================
+SQL>
